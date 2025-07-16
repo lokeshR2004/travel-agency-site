@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register – Trip-ah Tripping-ah</title>
+  <script src="https://kit.fontawesome.com/668204807e.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-image: url(./Images/button.jpg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    /* Header */
+    .header-top {
+      background: #000;
+      color: #fff;
+      padding: 5px 20px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .header-top div {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .header-top a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .navbar {
+      background: #1f3a58;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .navbar .logo span {
+      color: #0ff;
+    }
+
+    .navbar nav a {
+      color: #fff;
+      margin: 0 12px;
+      text-decoration: none;
+    }
+
+    .navbar .btn-register {
+      background: #0ff;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Registration Form */
+    .registration-container {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .registration-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .registration-container input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .registration-container button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: #0ff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .registration-container .login-link {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .registration-container .login-link a {
+      color: #0ff;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    .footer {
+      background: #111;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer .footer-column h4 {
+      margin-bottom: 16px;
+    }
+
+    .footer .footer-column ul {
+      list-style: none;
+    }
+
+    .footer .footer-column ul li {
+      margin: 8px 0;
+    }
+
+    .footer .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer .footer-column .social-icons a {
+      margin-right: 10px;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer .footer-column img {
+      border: 1px solid #fff;
+      width: 100px;
+      height: 50px;
+    }
+
+    .footer .newsletter p {
+      margin-bottom: 10px;
+    }
+
+    .footer .newsletter input {
+      margin-top: 5px;
+      width: calc(100% - 120px);
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      margin-right: 6px;
+    }
+
+    .footer .newsletter button {
+      padding: 8px 12px;
+      border: none;
+      background: #27ae60;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .footer .bottom-bar {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      font-size: 14px;
+    }
+
+    .footer .bottom-bar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 768px) {
+      .footer .footer-grid {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 12px;
+        padding: 10px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
+
+      .navbar .logo {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .navbar nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .registration-container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+      }
+
+      .registration-container h2 {
+        font-size: 20px;
+      }
+
+      .registration-container input,
+      .registration-container button {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .footer .footer-grid {
+        flex-direction: column;
+        padding: 0 10px;
+      }
+
+      .footer .footer-column {
+        margin-bottom: 20px;
+      }
+
+      .footer .footer-column img {
+        width: 100%;
+        height: auto;
+      }
+
+      .footer .newsletter input {
+        width: 100%;
+        margin: 6px 0;
+      }
+
+      .footer .newsletter button {
+        width: 100%;
+      }
+
+      .footer .bottom-bar {
+        font-size: 12px;
+        padding-top: 15px;
+      }
+    }
+
+    /* hamburger style __________________________________ */
+    /* Hamburger Menu Button */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #fff;
+      background: none;
+      border: none;
+    }
+
+    /* Scrollable Header Info */
+    .header-top .scroll-info {
+      display: flex;
+      gap: 20px;
+      white-space: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Hide scrollbar (optional aesthetic) */
+    .header-top .scroll-info::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .navbar nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        gap: 10px;
+      }
+
+      .navbar nav.show {
+        display: flex;
+      }
+
+      .navbar nav a {
+        padding: 10px;
+        background: #2a4b70;
+        border-radius: 5px;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <!-- <div class="header-top">
+    <div>
+      <span>📍 123 Street, New York, USA</span>
+      <span>📞 +91 9182048056</span>
+      <span>✉️ info@example.com</span>
+    </div>
+    <div>
+      <a href="#"><i class="fa-brands fa-github"></i></a><a href="#"><i class="fa-brands fa-linkedin"></i></a><a
+        href="#"><i class="fa-brands fa-x-twitter"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div> -->
+
+  <!-- <div class="navbar">
+    <div class="logo">Trip-ah <span>Tripping-ah.</span></div>
+    <nav>
+      <a href="./index.html">Home</a><a href="./index.html">About</a><a href="#">Services</a><a href="#">Packages</a><a
+        href="#">Pages</a><a href="#">Contact</a>
+    </nav>
+    <a href="#" class="btn-register">Register</a>
+  </div> -->
+  <!-- Header -->
+  <div class="header-top">
+    <div class="scroll-info">
+      <span>📍 123 Street, New York, USA</span>
+      <span>📞 +91 9182048056</span>
+      <span>✉️ info@example.com</span>
+    </div>
+    <div>
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <div class="logo">Trip-ah <span>Tripping-ah.</span></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav id="navLinks">
+      <a href="./index.html">Home</a>
+      <a href="./index.html">About</a>
+      <a href="#">Services</a>
+      <a href="#">Packages</a>
+      <a href="#">Pages</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+
+
+  <!-- Registration Form -->
+  <div class="registration-container">
+    <h2>Create Account</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="password" placeholder="Password" required />
+      <input type="password" placeholder="Confirm Password" required />
+      <button type="submit">Register Now</button>
+    </form>
+    <p class="login-link">Already have an account? <a href="#">Login here</a></p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Condition</a></li>
+          <li><a href="#">FAQs & Help</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul>
+          <li> 123 Street, New York, USA</li>
+          <li><i class="fa-solid fa-phone"></i> +012 345 67890</li>
+          <li><i class="fa-solid fa-envelope"></i> info@example.com</li>
+        </ul>
+        <div class="social-icons">
+          <a href="#"></a><a href="#"><i class="fa-brands fa-github"></i></a><a href="#">▶️</a><a href="#"><i
+              class="fa-brands fa-linkedin"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Gallery</h4>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <img src="./Images/button.jpg" alt="Gallery">
+          <img src="./Images/destination_img/dubai.jpg" alt="Gallery">
+          <img src="./Images/destination_img/indo.jpg" alt="Gallery">
+          <img src="./Images/destination_img/maldives.jpg" alt="Gallery">
+        </div>
+      </div>
+      <div class="footer-column newsletter">
+        <h4>Contact Us</h4>
+        <p>Any Query!! never hesitate <i class="fa-regular fa-face-smile"></i> </p>
+        <input type="email" placeholder="Your email" />
+        <input type="mobile" placeholder="Your mobile number" />
+        <input type="text" placeholder="Your Message" />
+        <button>Submit</button>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      © Trippah Tripping-ah, All Rights Reserved. Designed By <a href="#">Lokesh R</a> · <a href="#">Home</a>
+      · <a href="#">Cookies</a> · <a href="#">Help</a> · <a href="#">FAQs</a>
+    </div>
+  </div>
+
+</body>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
+</script>
+
+</html>
